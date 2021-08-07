@@ -1,0 +1,8 @@
+1. Altere o projeto de implementação do servidor para que ele seja capaz de receber comandos básicos da entrada padrão (inclua no mínimo um comando para permitir finalizar o servidor quando não houver clientes ativos). Use a função select.
+
+Nosso projeto agora, ao invés de simplesmente ficar esperando entradas via socket, possui uma segunda possibilidade, que vem a ser a entrada do stdin, por meio do módulo sys. Com isso, podemos receber inputs não só dos clientes pelo socket, mas também pelo próprio servidor.py, através do input. Fizemos de maneira que ao digitar "fim", nosso servidor encerra assim que todos os clientes ativos atualmente encerrarem. Isso foi possível graças ao uso da função select do módulo select.
+
+
+2. Altere o projeto de implementação do servidor para que ele se torne um servidor concorrente, isto é, trate cada nova conexão de cliente como um novo fluxo de execução e atenda as requisições desse cliente dentro do novo fluxo de execução. Crie threads ou processos filhos.
+
+Com a importação do módulo threading podemos separar cada cliente em uma diferente thread, permitindo que os mesmos não dependam uns dos outros para poderem receber respostas de suas requisições. Para isso, criamos para cada cliente uma nova thread que o atenderá, e armazenamos a referência àquela thread em nosso servidor, para permitir a distinção dos diferentes clientes por parte do servidor.
