@@ -1,0 +1,4 @@
+we have here an example text used to test our new application, which consists in distributed systems trying to answer how many words there are in a single text file
+linha 2
+linha 3
+linha ultima
